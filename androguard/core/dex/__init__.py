@@ -11,7 +11,7 @@ import struct
 import sys
 import time
 import zlib
-from enum import IntEnum
+from enum import IntEnum, IntFlag
 from struct import calcsize, pack, unpack
 from typing import IO, TYPE_CHECKING, BinaryIO, Iterator, Union
 
@@ -1327,8 +1327,11 @@ class HiddenApiClassDataItem:
         GREYLIST_MAX_P = 4
         GREYLIST_MAX_Q = 5
         GREYLIST_MAX_R = 6
+        GREYLIST_MAX_S = 7
 
-    class DomapiApiFlag(IntEnum):
+    class DomapiApiFlag(IntFlag):
+        """Domain flags may be combined and extended by newer Android releases."""
+
         NONE = 0
         CORE_PLATFORM_API = 1
         TEST_API = 2
